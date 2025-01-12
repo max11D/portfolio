@@ -3,8 +3,12 @@ const ariana = "IMG_6867", ironFog = "IMG_0748", jadeMulticolor = "IMG_9206", re
 const arianaExtras = ["IMG_6859", "IMG_6861", "IMG_6871-2", "IMG_6882"];
 const ironFogExtras = ["IMG_0735", "IMG_0750"];
 const redBootsExtras = ["IMG_0488", "IMG_0497"];
+const ella = "IMG_8152";
 const neonAmy = "IMG_9629-2", mushroom = "IMG_7744", self = "IMG_7229", caliVibes = "IMG_8201";
+const neonAmyExtras = ["IMG_9642", "IMG_9643"];
 const connect4 = "IMG_5375", leos = "IMG_5357", lightBars = "IMG_6703", earthy = "IMG_8211";
+const shikha = "IMG_4986-Enhanced-NR";
+const alyssa = "IMG_6962-3";
 import { useDisclosure } from '@mantine/hooks';
 import { Modal } from '@mantine/core';
 import { CSSProperties, JSX, useEffect, useRef, useState } from 'react';
@@ -16,8 +20,9 @@ import { getImageUrls, filterByArea } from '@/helpers/imageList';
 import PhotoCarousel from '../photo-carousel/photo-carousel';
 
 const carouselSequence = [
-  ariana, ...arianaExtras, ironFog, ...ironFogExtras, jadeMulticolor, redBoots, ...redBootsExtras, neonAmy, mushroom, self, caliVibes,
-  connect4, leos, lightBars, earthy
+  ariana, ...arianaExtras, ella, jadeMulticolor, redBoots, ...redBootsExtras, neonAmy, ...neonAmyExtras, mushroom, self,
+  leos, caliVibes, shikha, alyssa,
+  connect4, ironFog, ...ironFogExtras, lightBars, earthy
 ]
 
 function ImageBtn({ styles, openModal, loaded, baseImageName, onLoad, minLoad = 0, big = false }: {
@@ -114,18 +119,21 @@ export default function IrregularPortraitGrid() {
     </Modal>
     <div className={classes.grid}>
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={0} baseImageName={ariana} styles={{ gridColumn: "1 / span 2", gridRow: "1 / span 2"}} openModal={openModal} big />
-      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={1} baseImageName={ironFog} styles={{ gridColumn: "3", gridRow: "1"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={1} baseImageName={ella} styles={{ gridColumn: "3", gridRow: "1"}} openModal={openModal} />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={2} baseImageName={jadeMulticolor} styles={{ gridColumn: "3", gridRow: "2"}} openModal={openModal} />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={3} baseImageName={redBoots} styles={{ gridColumn: "2 / span 2", gridRow: "3"}} openModal={openModal} />
       <InlineBookCTA style={{ gridColumn: "1 / span 3", gridRow: "4"}} />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={4} baseImageName={neonAmy} styles={{ gridColumn: "1 / span 2", gridRow: "5 / span 2"}} openModal={openModal} big />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={5} baseImageName={mushroom} styles={{ gridColumn: "3", gridRow: "5"}} openModal={openModal} />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={6} baseImageName={self} styles={{ gridColumn: "3", gridRow: "6"}} openModal={openModal} />
-      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={7} baseImageName={leos} styles={{ gridColumn: "2 / span 2", gridRow: "7"}} openModal={openModal} />
-      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={8} baseImageName={caliVibes} styles={{ gridColumn: "1", gridRow: "8"}} openModal={openModal} />
-      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={9} baseImageName={connect4} styles={{ gridColumn: "2", gridRow: "8"}} openModal={openModal} />
-      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={10} baseImageName={earthy} styles={{ gridColumn: "1", gridRow: "9"}} openModal={openModal} />
-      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={11} baseImageName={lightBars} styles={{ gridColumn: "2 / span 2", gridRow: "9 / span 2"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={7} baseImageName={shikha} styles={{ gridColumn: "1", gridRow: "7"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={8} baseImageName={alyssa} styles={{ gridColumn: "2", gridRow: "7"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={9} baseImageName={leos} styles={{ gridColumn: "2 / span 2", gridRow: "8"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={10} baseImageName={caliVibes} styles={{ gridColumn: "1", gridRow: "9"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={11} baseImageName={connect4} styles={{ gridColumn: "2", gridRow: "9"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={12} baseImageName={ironFog} styles={{ gridColumn: "3", gridRow: "9"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={13} baseImageName={earthy} styles={{ gridColumn: "1", gridRow: "10"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={14} baseImageName={lightBars} styles={{ gridColumn: "2 / span 2", gridRow: "10 / span 2"}} openModal={openModal} />
     </div>
   </>;
 }
