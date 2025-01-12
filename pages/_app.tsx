@@ -2,6 +2,7 @@
 // All packages except `@mantine/hooks` require styles imports
 import '@mantine/core/styles.css';
 import "@/styles/globals.css";
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 import type { AppProps } from 'next/app';
 import { createTheme, MantineProvider } from '@mantine/core';

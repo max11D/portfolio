@@ -13,17 +13,19 @@ import { useRouter } from 'next/router';
 import { useSearchParams } from 'next/navigation';
 import InlineBookCTA from '../inline-book-cta/inline-book-cta';
 import { getImageUrls, filterByArea } from '@/pages/imageList';
+import PhotoCarousel from '../photo-carousel/photo-carousel';
 
 const carouselSequence = [
   ariana, ...arianaExtras, ironFog, ...ironFogExtras, jadeMulticolor, redBoots, ...redBootsExtras, neonAmy, mushroom, self, caliVibes,
   connect4, leos, lightBars, earthy
 ]
 
-function ImageBtn({ styles, openModal, loaded, baseImageName, onLoad, minLoad = 0 }: {
+function ImageBtn({ styles, openModal, loaded, baseImageName, onLoad, minLoad = 0, big = false }: {
   baseImageName?: string;
   styles: CSSProperties,
   loaded: number;
   minLoad?: number;
+  big?: boolean
   openModal: (event: ReactMouseEvent<HTMLAnchorElement, MouseEvent>, index: number) => void,
   onLoad: () => void;
 }): JSX.Element {
@@ -43,15 +45,8 @@ function ImageBtn({ styles, openModal, loaded, baseImageName, onLoad, minLoad = 
 
   if (baseImageName) {
     const urls = getImageUrls(baseImageName);
-    /* 
-      <source media="(min-height:2560px) and (min-aspect-ratio:1.0)" srcSet={filterByArea(urls, "4k")?.url} />
-      <source media="(min-height:1080px) and (min-aspect-ratio:1.0)" srcSet={filterByArea(urls, "2k")?.url} />
-      <source media="(min-width:1100px) and (max-aspect-ratio:1.0)" srcSet={filterByArea(urls, "2k-port")?.url} />
-      <source media="(max-aspect-ratio:1.0)" srcSet={filterByArea(urls, "1080-port")?.url} />
-      */
-
     srcSet = <picture style={{ display: "contents" }}>
-      <img onLoad={() => { imgLoadedSet(true); onLoad(); }} ref={ref} src={filterByArea(urls, "720-land")?.url} className={classes.img}/>
+      <img onLoad={() => { imgLoadedSet(true); onLoad(); }} ref={ref} src={filterByArea(urls, big ? "1080-land" : "720-land")?.url} className={classes.img}/>
     </picture>
   }
   return <>
@@ -70,10 +65,9 @@ export default function IrregularPortraitGrid() {
   const [opened, { open, close }] = useDisclosure(false, { onClose: () => {
     router.push("?", undefined, { "scroll": false });
   }});
-  const [activeImage, setActiveImage] = useState<string | undefined>(undefined);
+  const [activeImageIndex, setactiveImageIndex] = useState(0);
   const [loaded, setLoaded] = useState(1);
   const incrementLoaded = () => {
-    console.warn("Loaded...");
     setLoaded(loaded + 1);
   }
   const router = useRouter();
@@ -81,7 +75,7 @@ export default function IrregularPortraitGrid() {
 
   const openModal = (event: ReactMouseEvent<HTMLAnchorElement, MouseEvent>, index: number) => {
     event.preventDefault();
-    setActiveImage(carouselSequence[index]);
+    setactiveImageIndex(index);
     open();
     router.push(`?index=${index}`, undefined, { "scroll": false });
   }
@@ -95,12 +89,11 @@ export default function IrregularPortraitGrid() {
       if (!opened) {
         open();
       }
-      setActiveImage(carouselSequence[parseInt(imageIndex)]);
+      setactiveImageIndex(parseInt(imageIndex));
     }
     
   }, [searchParams]);
 
-  //<img className={classes.modalImg} src={activeImage?.src} />
   return <>
     <Modal
       className={classes.modal}
@@ -110,22 +103,18 @@ export default function IrregularPortraitGrid() {
       title="Image"
       centered size="auto"
       transitionProps={{ duration: 100, enterDelay: 0 }}
+      style={{"--mantine-color-body": "black"}}
+      shadow={"#ff000033 0px 0px 12px 2px"}
     >
-      <picture style={{ display: "contents" }}>
-        <source media="(min-height:2560px) and (min-aspect-ratio:1.0)" srcSet={filterByArea(urls, "4k")?.url} />
-        <source media="(min-height:1080px) and (min-aspect-ratio:1.0)" srcSet={filterByArea(urls, "2k")?.url} />
-        <source media="(min-width:1100px) and (max-aspect-ratio:1.0)" srcSet={filterByArea(urls, "2k-port")?.url} />
-        <source media="(max-aspect-ratio:1.0)" srcSet={filterByArea(urls, "1080-port")?.url} />
-        <img className={classes.modalImg} src={activeImage?.src} />
-      </picture>
+      <PhotoCarousel photos={carouselSequence} initialIndex={activeImageIndex} />
     </Modal>
     <div className={classes.grid}>
-      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={0} baseImageName={ariana} styles={{ gridColumn: "1 / span 2", gridRow: "1 / span 2"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={0} baseImageName={ariana} styles={{ gridColumn: "1 / span 2", gridRow: "1 / span 2"}} openModal={openModal} big />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={1} baseImageName={ironFog} styles={{ gridColumn: "3", gridRow: "1"}} openModal={openModal} />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={2} baseImageName={jadeMulticolor} styles={{ gridColumn: "3", gridRow: "2"}} openModal={openModal} />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={3} baseImageName={redBoots} styles={{ gridColumn: "2 / span 2", gridRow: "3"}} openModal={openModal} />
       <InlineBookCTA style={{ gridColumn: "1 / span 3", gridRow: "4"}} />
-      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={4} baseImageName={neonAmy} styles={{ gridColumn: "1 / span 2", gridRow: "5 / span 2"}} openModal={openModal} />
+      <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={4} baseImageName={neonAmy} styles={{ gridColumn: "1 / span 2", gridRow: "5 / span 2"}} openModal={openModal} big />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={5} baseImageName={mushroom} styles={{ gridColumn: "3", gridRow: "5"}} openModal={openModal} />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={6} baseImageName={self} styles={{ gridColumn: "3", gridRow: "6"}} openModal={openModal} />
       <ImageBtn onLoad={incrementLoaded} loaded={loaded} minLoad={7} baseImageName={leos} styles={{ gridColumn: "2 / span 2", gridRow: "7"}} openModal={openModal} />

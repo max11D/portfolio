@@ -16,6 +16,7 @@
   outline: 2px solid transparent;
   outline-offset: -2px;
   transition: all 100ms ease-in-out;
+  height: fit-content;
 
   &:hover {
     outline-color: var(--mantine-color-red-filled);
