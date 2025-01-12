@@ -3,3 +3,45 @@
   align-items: center;
   justify-content: center;
 }
+
+.slider {
+  width: 92vw;
+}
+
+.back, .next {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  border: none;
+  background-color: transparent;
+  color: white;
+  justify-content: center;
+  padding-top: 6px;
+  border-radius: 50%;
+  transition: all 100ms ease-in-out;
+  font-size: 2rem;
+  line-height: 2rem;
+  opacity: 0.25;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+  }
+}
+
+.back {
+  left: 1.25rem;
+}
+
+.next {
+  right: 1.25rem;
+}
+
+.sliderAnimation {
+  transition: transform .3s;
+  transition-timing-function: cubic-bezier(.645, .045, .355, 1);
+  will-change: transform;
+}

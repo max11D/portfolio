@@ -41,7 +41,7 @@ function ImageBtn({ styles, openModal, loaded, baseImageName, onLoad, minLoad = 
         onLoad(); 
       }
     }, 100);
-  })
+  });
 
   if (baseImageName) {
     const urls = getImageUrls(baseImageName);
@@ -79,6 +79,10 @@ export default function IrregularPortraitGrid() {
     open();
     router.push(`?index=${index}`, undefined, { "scroll": false });
   }
+
+  useEffect(() => {
+    setTimeout(() => setLoaded(1000), 1500);
+  });
 
   useEffect(() => {
     const imageIndex = searchParams.get("index");
