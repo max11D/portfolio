@@ -1,5 +1,5 @@
 import Head from "next/head";
-import IrregularPortraitGrid from "./components/irregular-portrait-grid/irregular-portrait-grid";
+import IrregularPortraitGrid from "../components/irregular-portrait-grid/irregular-portrait-grid";
 
 export default function Portraits() {
   return (

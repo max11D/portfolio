@@ -48,7 +48,7 @@ export default function InlineBookCTA({ style }: { style?: CSSProperties }) {
     <h2>Like what you see? Book a shoot!</h2>
     <p style={{ maxWidth: "30rem", paddingBottom: "0.5rem" }}>
       Submit an idea if you know what you want, or fill out a mood questionnaire
-      if you're unsure.
+      if you&apos;re unsure.
     </p>
     <Button onClick={(event) => openModal(event)}>Get started</Button>
   </div>)

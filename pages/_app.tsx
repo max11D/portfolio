@@ -6,7 +6,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 import type { AppProps } from 'next/app';
 import { createTheme, MantineProvider } from '@mantine/core';
-import Navbar from './components/navbar/navbar';
+import Navbar from '../components/navbar/navbar';
 
 const theme = createTheme({
   fontFamily: 'Kanit, Open Sans, sans-serif',

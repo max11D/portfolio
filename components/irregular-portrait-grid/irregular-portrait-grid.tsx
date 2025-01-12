@@ -12,7 +12,7 @@ import { MouseEvent as ReactMouseEvent } from 'react';
 import { useRouter } from 'next/router';
 import { useSearchParams } from 'next/navigation';
 import InlineBookCTA from '../inline-book-cta/inline-book-cta';
-import { getImageUrls, filterByArea } from '@/pages/imageList';
+import { getImageUrls, filterByArea } from '@/helpers/imageList';
 import PhotoCarousel from '../photo-carousel/photo-carousel';
 
 const carouselSequence = [

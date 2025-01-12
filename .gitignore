@@ -15,7 +15,6 @@
 
 # next.js
 /.next/
-/out/
 
 # production
 /build
@@ -41,4 +40,4 @@ yarn-error.log*
 next-env.d.ts
 
 # photos (for now)
-/public/images_full/*
+/images_full/*

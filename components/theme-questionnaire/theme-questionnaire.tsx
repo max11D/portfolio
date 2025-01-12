@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TagList from "../tag-list/tag-list";
+import TagList from "../tag-list/tag-list.component";
 import classes from './theme-questionnaire.module.css';
 
 export default function ThemeQuestionnaire() {

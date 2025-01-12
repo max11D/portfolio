@@ -1,4 +1,4 @@
-import { filterByArea, getImageUrls } from "@/pages/imageList";
+import { filterByArea, getImageUrls } from "@/helpers/imageList";
 import { CarouselProvider, Slider, Slide, CarouselContext } from "pure-react-carousel";
 import { useContext, useEffect, useMemo, useState } from "react";
 import classes from "./photo-carousel.module.css";
@@ -48,7 +48,7 @@ export default function PhotoCarousel({ photos, initialIndex }: { photos: string
   return <CarouselProvider
   naturalSlideWidth={1200}
   naturalSlideHeight={800}
-  totalSlides={photos.length}
+  totalSlides={photos?.length}
   currentSlide={initialIndex}
 >
   <Slider style={{ width: "92vw"}}>
