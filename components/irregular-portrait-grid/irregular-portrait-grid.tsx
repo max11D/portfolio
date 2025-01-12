@@ -95,8 +95,8 @@ export default function IrregularPortraitGrid() {
       }
       setactiveImageIndex(parseInt(imageIndex));
     }
-    
-  }, [searchParams, open, close, opened]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   return <>
     <Modal

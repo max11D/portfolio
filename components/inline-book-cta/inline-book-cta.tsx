@@ -29,7 +29,8 @@ export default function InlineBookCTA({ style }: { style?: CSSProperties }) {
     } else {
       close();
     }
-  }, [searchParams, close, open])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams])
 
   return (<div style={style} className={classes.outer}>
     <Modal
