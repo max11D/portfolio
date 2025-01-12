@@ -1,0 +1,45 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 80vh;
+  gap: 12px;
+}
+
+.imgLink {
+  display: flex;
+  outline: none !important;
+}
+
+.img {
+  max-width: 100%;
+  cursor: zoom-in;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  transition: all 100ms ease-in-out;
+
+  &:hover {
+    outline-color: var(--mantine-color-red-filled);
+  }
+}
+
+.imgLink:active .img, .imgLink:focus .img {
+  outline-color: var(--mantine-color-red-filled);
+} 
+
+.modalImg{
+  max-width: 100%;
+  max-height: calc(100vh - 100px);
+}
+
+.modal {
+  --modal-inner-y-offset: 0px;
+  --modal-y-offset: 0px;
+  --modal-inner-x-offset: 0px;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,6 +1,9 @@
 .navbar {
-  height: 750px;
-  width: 300px;
+  height: 100vh;
+  box-sizing: border-box;
+  width: 200px;
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: column;
 }
@@ -23,8 +26,8 @@
   transition: all 150ms ease-in-out;
 
   &:hover {
-    background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
-    color: light-dark(var(--mantine-color-dark), var(--mantine-color-light));
+    background-color: #151b24;
+    color: var(--mantine-color-light);
   }
 }
 
@@ -33,6 +36,6 @@
 }
 
 .link[data-active] > .innerLink {
-  background-color: var(--mantine-color-blue-filled);
+  background-color: var(--mantine-color-red-filled);
   color: var(--mantine-color-white);
 }

@@ -1,30 +1,41 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classes from './navbar.module.css';
+import Link from 'next/link';
 
-const linksMockdata = [
-  'Home',
-  'Portraits',
-  'Street photography',
-  'Booking a shoot',
-  'Contact',
+type Link = {
+  title: string, href: string;
+}
+
+const linksMockdata: Link[] = [
+  { title: 'Home', href: "/" },
+  { title: 'Portraits', href: "/portraits" },
+  { title: 'Street photography', href: "/street-photography" },
+  { title: 'Booking a shoot', href: "/booking-a-shoot" },
+  { title: 'Safety', href: "/safety" },
+  { title: 'Contact', href: "/contact" },
 ];
 
-export function Navbar() {
-  const [activeLink, setActiveLink] = useState('Home');
+export default function Navbar() {
+  const [activeLink, setActiveLink] = useState<string | undefined>();
 
-  const links = linksMockdata.map((link) => (
-    <a
+  useEffect(() => {
+    if (!activeLink) {
+      setActiveLink(linksMockdata.find(({ href }) => href === window.location.pathname)?.title);
+    }
+  })
+
+  const links = linksMockdata.map(({ href, title }) => (
+    <Link
       className={classes.link}
-      data-active={activeLink === link || undefined}
-      href="#"
-      onClick={(event) => {
-        event.preventDefault();
-        setActiveLink(link);
+      data-active={activeLink === title || undefined}
+      href={href}
+      onClick={() => {
+        setActiveLink(title);
       }}
-      key={link}
+      key={title}
     >
-      <span className={classes.innerLink}>{link}</span>
-    </a>
+      <span className={classes.innerLink}>{title}</span>
+    </Link>
   ));
 
   return (
