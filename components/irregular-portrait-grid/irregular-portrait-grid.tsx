@@ -96,7 +96,7 @@ export default function IrregularPortraitGrid() {
       setactiveImageIndex(parseInt(imageIndex));
     }
     
-  }, [searchParams]);
+  }, [searchParams, open, close, opened]);
 
   return <>
     <Modal

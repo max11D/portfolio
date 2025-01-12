@@ -29,7 +29,7 @@ export default function InlineBookCTA({ style }: { style?: CSSProperties }) {
     } else {
       close();
     }
-  }, [searchParams])
+  }, [searchParams, close, open])
 
   return (<div style={style} className={classes.outer}>
     <Modal

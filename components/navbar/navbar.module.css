@@ -39,3 +39,40 @@
   background-color: var(--mantine-color-red-filled);
   color: var(--mantine-color-white);
 }
+
+.burger {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+}
+
+.forMobile {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .forMobile {
+    display: contents;
+  }
+
+  .navbar {
+    height: 2.5rem;
+    background-color: #030303;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .main {
+    position: fixed;
+    left: -100%;
+    top: 2.5rem;
+    background-color: #030303;
+    bottom: 0;
+    transition: all 200ms ease-in-out;
+  }
+
+  .show {
+    left: 0; 
+  }
+}
