@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import classes from './irregular-portrait-grid.module.css';
 const ariana = "IMG_6867", ironFog = "IMG_0748", jadeMulticolor = "IMG_9206";
 const arianaExtras = ["IMG_6859", "IMG_6861", "IMG_6871-2", "IMG_6882"];
@@ -31,7 +32,7 @@ const carouselSequence = [
   louStartrails, ...louStartrailsExtras, neonAmy, ...neonAmyExtras,
   mushroom, self, shikha, alyssa, louWide, leos, caliVibes,
   ironFog, ...ironFogExtras, cyberpunk, ...cyberpunkExtras, earthy, louCircle,
-  ella, jadeRainbowBoots, jadeRainbowBootsExtras, allysha,
+  ella, jadeRainbowBoots, ...jadeRainbowBootsExtras, allysha,
 ]
 
 function ImageBtn({ styles, openModal, loaded, baseImageName, onLoad, minLoad = 0, big = false }: {
