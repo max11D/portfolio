@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  max-width: 80vh;
+}
+
+.nameHeading {
+  font-size: 4rem;
+}
+
+.portraitBanner {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.heroImage {
+  max-width: 100%;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.overlay {
+  grid-row: 1;
+  grid-column: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.5rem 1rem;
+}
+
+.overlay h2 {
+  font-size: 2rem;
+  line-height: 2.25rem;
+  filter: drop-shadow(0px 0px 12px 2px rgba(0,0,0,0.5));
+}
+
+.summary {
+  margin-top: 2rem;
+  padding: 0 1rem 2rem;
+}
+
+.summary h3 {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+}

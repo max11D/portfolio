@@ -18,6 +18,12 @@ input {
   --input-bg: #030303;
 }
 
+.quantico {
+  font-family: "Quantico", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
