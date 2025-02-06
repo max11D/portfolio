@@ -1,11 +1,9 @@
-import classNames from "classnames";
 import classes from "./homepage.module.css";
 import { filterByArea, getImageUrls } from "@/helpers/imageList";
 
 export default function Homepage() {
   return (
     <div className={classes.container}>
-      <h1 className={classNames("quantico", classes.nameHeading)}>Maksim Mikityanskiy</h1>
       <div className={classes.portraitBanner}>
         <img src={filterByArea(getImageUrls("IMG_1856"), "1080-land")?.url} className={classes.heroImage} />
         <div className={classes.overlay}>

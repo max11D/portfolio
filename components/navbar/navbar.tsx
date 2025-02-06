@@ -46,7 +46,7 @@ export default function Navbar() {
   return (
     <nav className={classes.navbar}>
       <div className={classNames(classes.main, {[classes.show]: show})}>
-      <div style={{ display: "none" }} className={classNames("quantico", classes.name)}>Maksim<br/>Mikityanskiy</div>
+      <div className={classNames("quantico", classes.name)}>Maksim<br/>Mikityanskiy</div>
         {links}
       </div>
       <div className={classes.forMobile}>
