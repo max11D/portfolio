@@ -1,0 +1,25 @@
+.strip {
+  display: flex;
+  margin: 1rem 0;
+
+  a {
+    display: contents;
+  }
+
+  /*a:nth-child(3)::after {
+    content: " ";
+    width: 100%;
+  }*/
+
+  img {
+    width: 5%;
+    flex: 1 1 content;
+  }
+}
+
+
+.modal {
+  --modal-inner-y-offset: 0px;
+  --modal-y-offset: 0px;
+  --modal-inner-x-offset: 0px;
+}
